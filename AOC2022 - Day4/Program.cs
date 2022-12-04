@@ -53,14 +53,15 @@ public static class Day4
 
     private static  (IEnumerable<int>, IEnumerable<int>) GetValueSequenceFromSectionAssignment(string sectionAssignment)
     {
-        var firstPair = sectionAssignment.Split(',')[0].Split('-');
-        var secondPair = sectionAssignment.Split(',')[1].Split('-');
+        // Using First and Last as data is guaranteed to be structured.
+        var firstPair = sectionAssignment.Split(',').First().Split('-');
+        var secondPair = sectionAssignment.Split(',').Last().Split('-');
 
-        var firstElementsCount = int.Parse(firstPair[1]) - int.Parse(firstPair[0]) + 1;
-        var secondElementsCount = int.Parse(secondPair[1]) - int.Parse(secondPair[0]) + 1;
+        var firstElementsCount = int.Parse(firstPair.Last()) - int.Parse(firstPair.First()) + 1;
+        var secondElementsCount = int.Parse(secondPair.Last()) - int.Parse(secondPair.First()) + 1;
 
-        var first = Enumerable.Range(int.Parse(firstPair[0]), firstElementsCount);
-        var second = Enumerable.Range(int.Parse(secondPair[0]), secondElementsCount);
+        var first = Enumerable.Range(int.Parse(firstPair.First()), firstElementsCount);
+        var second = Enumerable.Range(int.Parse(secondPair.First()), secondElementsCount);
         
         return (first, second);
     }
