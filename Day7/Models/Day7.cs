@@ -22,11 +22,12 @@ namespace Day7.Models
         public Day7()
         {
             Setup();
+            Root.GetFileSize();
         }
 
         public void Part1()
         {
-            Root.GetFileSize();
+            
             var resultAocDirectories = Root.GetDirectoriesWithMaxSize(100000);
 
             Console.WriteLine($"Part 1: {resultAocDirectories.Sum(x => x.TotalSize)}");
@@ -34,9 +35,6 @@ namespace Day7.Models
 
         public void Part2()
         {
-
-            Root.GetFileSize();
-            
             var totalSize = 70000000;
             var currentFree = totalSize - Root.TotalSize;
             var difference = 30000000 - currentFree;
