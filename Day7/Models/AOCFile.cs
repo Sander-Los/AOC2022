@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 
 namespace Day7.Models
 {
-    public interface IAOC2022
+    public class AOCFile
     {
-        void Setup();
-        void Part1();
-        void Part2();
-
+        public string Name { get; set; }
+        public int Size { get; set; }
     }
 }
